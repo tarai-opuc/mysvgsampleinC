@@ -1,15 +1,15 @@
 CC = clang
-CFLAGS = -g -Wall
+CFLAGS = -Wall
 LDFLAGS = 
 LDLIBS = -lm
-OBJS = main.o libmysvg.o
-SRCS = main.c libmysvg.c
+OBJS = main.o 
+SRCS = main.c
 EXEC = main
 SAMPLE = sample.svg
 $(EXEC) : $(OBJS)
 
-$(SAMPLE): $(EXEC)
-	./$(EXEC) > $@
+sample: $(EXEC)
+	./$(EXEC) > $(SAMPLE)
 
 format: $(SRCS)
 	clang-format -i $^
